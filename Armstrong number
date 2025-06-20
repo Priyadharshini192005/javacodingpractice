@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.print("Enter the lower limit: ");
+        int lowerLimit = scanner.nextInt();
+
+        System.out.print("Enter the upper limit: ");
+        int upperLimit = scanner.nextInt();
+
+        for (int num = lowerLimit ; num < upperLimit; num++) {
+            int digits = 0;
+            int temp = num;
+
+     
+            while (temp != 0) {
+                temp /= 10;
+                digits++;
+            }
+
+           
+            int sum = 0;
+            temp = num;
+            while (temp != 0) {
+                int pri = temp % 10;
+                sum += Math.pow(pri, digits);
+                temp /= 10;
+            }
+
+            // Check if the number is an Armstrong number
+            if (sum == num) {
+                System.out.print(num + " ");
+            }
+        }
+
+        System.out.println(); 
+        scanner.close();
+    }
+}
